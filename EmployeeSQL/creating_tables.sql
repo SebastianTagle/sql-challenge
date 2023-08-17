@@ -1,19 +1,19 @@
 
--- ESTA TABLA TIENE EL NOMBRE DEL PUESTO
+-- This table contains the name of the job
 CREATE TABLE titles (
 	title_id VARCHAR(5) NOT NULL,
 	title VARCHAR(20) NOT NULL,
 	PRIMARY KEY (title_id)
 );
 
--- ESTA TIENE EL NOMBRE DEL DEPARTAMENTO
+-- This table contains the name of the departments
 CREATE TABLE departments (
 	dept_no VARCHAR(5) NOT NULL,
 	dept_name VARCHAR(20) NOT NULL,
 	PRIMARY KEY (dept_no)
 );
 
--- ESTA TIENE LA INFORMACIÓN DEL EMPLEADO
+-- This table contains the information of each employee
 CREATE TABLE employees (
 	emp_no INT NOT NULL,
 	emp_title_id VARCHAR(6) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE employees (
 	FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
 );
 
--- ESTA TIENE EL DEPARTAMENTO QUE TRABAJA CADA EMPLEADO
+-- This table contains the departments where every employee works
 CREATE TABLE dept_emp (
 	emp_no INT NOT NULL,
 	dept_no VARCHAR(5) NOT NULL,
@@ -34,14 +34,14 @@ CREATE TABLE dept_emp (
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
 
--- ESTA TIENE EL SALARIO PARA CADA EMPLEADO
+-- This table contains the salary of every employee
 CREATE TABLE salaries (
 	emp_no INT NOT NULL,
 	salary INT,
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
--- ESTA TIENE QUE EMPLEADO ES JEFE EN CADA DEPARTAMENTO
+-- This table contains the manager to every departments
 CREATE TABLE dept_manager (
 	dept_no VARCHAR(20) NOT NULL,
 	emp_no INT NOT NULL,
